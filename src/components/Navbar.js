@@ -1,7 +1,7 @@
 import React from 'react';
 import './Navbar.css';
 
-const navbar = () => {
+const navbar = (props) => {
   return (
     <header>
       <nav>
@@ -12,8 +12,14 @@ const navbar = () => {
             type="text"
             id="searchField"
             placeholder="Search for the repository here...."
+            value={props.searchVal}
+            onChange={(e) => {
+              props.onChangeHandler(e);
+            }}
           />
-          <button className="searchButton">Search</button>
+          <button className="searchButton" onClick={props.onSubmitHandler}>
+            Search
+          </button>
         </div>
       </nav>
     </header>

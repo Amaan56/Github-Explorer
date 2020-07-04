@@ -1,0 +1,30 @@
+.card {
+  z-index: 500;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px #ccc;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.card img {
+  height: 250px;
+  border-radius: 50%;
+  margin: 20px;
+}
+
+.cardChild {
+  width: 100%;
+  text-align: justify;
+  margin: auto;
+  padding-left: 30px;
+}
+
+.stats {
+  display: flex;
+}
+
+.stats p {
+  margin-right: 10px;
+}
