@@ -1,0 +1,34 @@
+nav {
+  background-color: #1b242f;
+  display: flex;
+  padding: 15px;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
+}
+
+.searchContent {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+.searchContent input {
+  width: 75%;
+  padding: 5px 0;
+}
+
+.searchContent input:focus {
+ 
+}
+
+.searchButton {
+  width: 20%;
+  color: #1b242f;
+  border: 1px solid white;
+  font-family: 'Bebas Neue', cursive;
+}
