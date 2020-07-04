@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
+import RepositoryList from '../components/RepositoryList/RepositoryList';
 
 class Explorer extends Component {
   state = {};
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <RepositoryList />
+      </div>
+    );
   }
 }
 
