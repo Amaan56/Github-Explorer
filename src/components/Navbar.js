@@ -11,11 +11,11 @@ const navbar = (props) => {
           <input
             type="text"
             id="searchField"
-            placeholder="Search for the repository here...."
-            value={props.searchVal}
+            placeholder="   Search for the repository here...."
             onChange={(e) => {
               props.onChangeHandler(e);
             }}
+            value={props.searchValue}
           />
           <button className="searchButton" onClick={props.onSubmitHandler}>
             Search

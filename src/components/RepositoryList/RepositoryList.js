@@ -2,12 +2,11 @@ import React from 'react';
 import Repository from './Repository/Repository';
 import './RepositoryList.css';
 
-const repositoryList = () => {
-  return (
-    <div className="repositoryList">
-      <Repository />
-    </div>
-  );
+const repositoryList = (props) => {
+  const repoData = props.repos.map((repo) => {
+    return <Repository repo={repo} />;
+  });
+  return <div className="repositoryList">{repoData}</div>;
 };
 
 export default repositoryList;

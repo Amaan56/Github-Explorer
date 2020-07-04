@@ -10,14 +10,38 @@ class Explorer extends Component {
   };
 
   searchChangeHandler = (e) => {
+    const val = e.target.value;
     this.setState({
-      searchText: e.target.value,
+      searchText: val,
     });
-    console.log(this.searchText);
   };
 
   searchSubmitHandler = () => {
-    console.log(this.searchText);
+    let url = `https://api.github.com/search/repositories?q=${this.state.searchText}+in:name,description&type=Repositories&sort=stars`;
+    let repoData = [];
+    axios
+      .get(url)
+      .then((responseData) => {
+        console.log(responseData);
+
+        repoData = responseData.data.items.map((item) => {
+          return {
+            avatarImg: item.owner.avatar_url,
+            name: item.full_name,
+            description: item.description,
+            gitUrl: item.html_url,
+            language: item.language,
+            watch: item.watchers,
+            stars: item.stargazers_count,
+            fork: item.forks_count,
+          };
+        });
+        this.setState({
+          data: repoData,
+          searchText: '',
+        });
+      })
+      .catch((err) => console.log(err));
   };
 
   render() {
@@ -26,9 +50,9 @@ class Explorer extends Component {
         <Navbar
           onChangeHandler={this.searchChangeHandler}
           onSubmitHandler={this.searchSubmitHandler}
-          searchVal={this.searchText}
+          searchValue={this.state.searchText}
         />
-        <RepositoryList />
+        <RepositoryList repos={this.state.data} />
       </div>
     );
   }
