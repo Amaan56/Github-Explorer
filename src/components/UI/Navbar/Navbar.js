@@ -4,7 +4,7 @@ import './Navbar.css';
 const navbar = (props) => {
   return (
     <header>
-      <nav>
+      <nav className="navBar">
         <a href="/">Github Explorer</a>
 
         <div className="searchContent">

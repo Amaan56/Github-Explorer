@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import RepositoryList from '../components/RepositoryList/RepositoryList';
 import axios from 'axios';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/UI/Navbar/Navbar';
+import PaginationUI from '../components/UI/PaginationUI/PaginationUI';
+import paginationUI from '../components/UI/PaginationUI/PaginationUI';
 
 class Explorer extends Component {
   state = {
     data: [],
     searchText: '',
+    currentPage: 1,
+    reposPerPage: 5,
   };
 
   searchChangeHandler = (e) => {
@@ -45,6 +49,23 @@ class Explorer extends Component {
   };
 
   render() {
+    //Apllying Pagination
+    let indexOfLastRepo = this.state.currentPage * this.state.reposPerPage;
+    let indexOfFirstRepo = indexOfLastRepo - this.state.reposPerPage;
+    const dataRepo = this.state.data;
+    const currentRepos = dataRepo.slice(indexOfFirstRepo, indexOfLastRepo);
+
+    let paginationPart = null;
+
+    if (this.state.data.length > 0) {
+      paginationPart = (
+        <PaginationUI
+          reposPerPage={this.state.reposPerPage}
+          totalRepos={this.state.data.length}
+          currentPage={this.state.currentPage}
+        />
+      );
+    }
     return (
       <div>
         <Navbar
@@ -52,7 +73,8 @@ class Explorer extends Component {
           onSubmitHandler={this.searchSubmitHandler}
           searchValue={this.state.searchText}
         />
-        <RepositoryList repos={this.state.data} />
+        <RepositoryList repos={currentRepos} />
+        {paginationPart}
       </div>
     );
   }

@@ -1,11 +1,11 @@
-nav {
+.navBar {
   background-color: #1b242f;
   display: flex;
   padding: 15px;
   justify-content: space-between;
 }
 
-nav a {
+.navBar a {
   text-decoration: none;
   color: white;
   font-family: 'Bebas Neue', cursive;
