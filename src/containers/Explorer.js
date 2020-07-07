@@ -10,8 +10,22 @@ class Explorer extends Component {
     data: [],
     searchText: '',
     currentPage: 1,
-    reposPerPage: 5,
+    reposPerPage: 3,
   };
+
+  componentDidMount() {
+    this.setState(
+      {
+        searchText: 'Java',
+      },
+      () => {
+        this.searchSubmitHandler();
+      }
+    );
+  }
+  componentDidUpdate() {
+    window.scrollTo(0, 0);
+  }
 
   searchChangeHandler = (e) => {
     const val = e.target.value;
@@ -48,6 +62,13 @@ class Explorer extends Component {
       .catch((err) => console.log(err));
   };
 
+  changePageNumber = (page) => {
+    console.log(page);
+
+    this.setState({
+      currentPage: page,
+    });
+  };
   render() {
     //Apllying Pagination
     let indexOfLastRepo = this.state.currentPage * this.state.reposPerPage;
@@ -63,6 +84,7 @@ class Explorer extends Component {
           reposPerPage={this.state.reposPerPage}
           totalRepos={this.state.data.length}
           currentPage={this.state.currentPage}
+          changePageNumber={this.changePageNumber}
         />
       );
     }

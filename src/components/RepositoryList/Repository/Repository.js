@@ -11,7 +11,10 @@ const repository = (props) => {
         <p>Language : {props.repo.language}</p>
         <p>
           {' '}
-          For Github repository click <a href={props.repo.gitUrl}>Here</a>
+          For Github repository click{' '}
+          <a target="_blank" href={props.repo.gitUrl}>
+            Here
+          </a>
         </p>
         <div className="stats">
           <p>Watch: {props.repo.watch}</p>
