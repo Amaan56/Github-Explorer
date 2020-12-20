@@ -15,6 +15,7 @@ const navbar = (props) => {
             onChange={(e) => {
               props.onChangeHandler(e);
             }}
+            value={props.searchValue}
           />
           <button className="searchButton" onClick={props.onSubmitHandler}>
             Search

@@ -1,30 +1,54 @@
 .navBar {
   background-color: #1b242f;
   display: flex;
-  padding: 15px;
+  padding: 1rem 0.4rem;
   justify-content: space-between;
+  align-items: center;
 }
 
 .navBar a {
   text-decoration: none;
   color: white;
   font-family: 'Bebas Neue', cursive;
-  font-size: 20px;
+  font-size: 1.4rem;
+  padding: 0.2rem;
 }
 
 .searchContent {
-  width: 50%;
   display: flex;
-  justify-content: space-between;
 }
 .searchContent input {
-  width: 75%;
-  padding: 5px 0;
+  padding: 0.6rem;
+  width: 20rem;
+  font-size: 0.8rem;
 }
 
 .searchButton {
-  width: 20%;
   color: #1b242f;
   border: 1px solid white;
   font-family: 'Bebas Neue', cursive;
+  font-size: 1rem;
+  margin-left: 1rem;
+  padding: 0.2rem 1rem;
+}
+
+@media only screen and (max-width: 550px) {
+  .navBar {
+    padding: 0.6rem 0.2rem;
+  }
+  .searchContent input {
+    padding: 0.1rem;
+    width: 9.5rem;
+    font-size: 0.5rem;
+  }
+
+  .navBar a {
+    font-size: 0.8rem;
+  }
+
+  .searchButton {
+    font-size: 0.6rem;
+    margin-left: 0.4rem;
+    padding: 0.1rem 0.4rem;
+  }
 }

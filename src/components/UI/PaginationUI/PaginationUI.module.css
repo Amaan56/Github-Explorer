@@ -8,13 +8,14 @@
 }
 
 .pagination {
-  margin-top: 25px;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
 }
 .pagination span {
   cursor: pointer;
   color: black;
   float: left;
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   text-decoration: none;
   transition: background-color 0.3s;
   border: 1px solid #ddd;
@@ -24,4 +25,14 @@
   background-color: #0099ff;
   color: white;
   border: 1px solid #0099ff;
+}
+
+@media only screen and (max-width: 550px) {
+  .pageUI {
+    width: 97%;
+  }
+
+  .pagination span {
+    padding: 0.2rem 0.6rem;
+  }
 }

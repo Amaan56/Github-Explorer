@@ -3,7 +3,6 @@ import RepositoryList from '../components/RepositoryList/RepositoryList';
 import axios from 'axios';
 import Navbar from '../components/UI/Navbar/Navbar';
 import PaginationUI from '../components/UI/PaginationUI/PaginationUI';
-import paginationUI from '../components/UI/PaginationUI/PaginationUI';
 
 class Explorer extends Component {
   state = {
@@ -35,13 +34,15 @@ class Explorer extends Component {
   };
 
   searchSubmitHandler = () => {
+    if (this.state.searchText === '') {
+      console.log('No Text');
+      return;
+    }
     let url = `https://api.github.com/search/repositories?q=${this.state.searchText}+in:name,description&type=Repositories&sort=stars`;
     let repoData = [];
     axios
       .get(url)
       .then((responseData) => {
-        console.log(responseData);
-
         repoData = responseData.data.items.map((item) => {
           return {
             avatarImg: item.owner.avatar_url,
@@ -63,8 +64,6 @@ class Explorer extends Component {
   };
 
   changePageNumber = (page) => {
-    console.log(page);
-
     this.setState({
       currentPage: page,
     });

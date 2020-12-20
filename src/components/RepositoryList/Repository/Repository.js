@@ -6,13 +6,13 @@ const repository = (props) => {
     <div className="card">
       <img src={props.repo.avatarImg} alt="abc" />
       <div className="cardChild">
-        <h4>Repository : {props.repo.name}</h4>
+        <h2>Repository : {props.repo.name}</h2>
         <p>Description : {props.repo.description}</p>
         <p>Language : {props.repo.language}</p>
         <p>
           {' '}
           For Github repository click{' '}
-          <a target="_blank" href={props.repo.gitUrl}>
+          <a target="_blank" rel="noopener noreferrer" href={props.repo.gitUrl}>
             Here
           </a>
         </p>
